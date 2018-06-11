@@ -10,7 +10,7 @@ public class BatTriggerScript : MonoBehaviour {
     // Bats Object Reference
     public GameObject bats;
     // To make sure bats only appear once
-    private bool firstBatAppearance;
+    public bool firstBatAppearance;
 
     void Setup()
     {
@@ -26,12 +26,18 @@ public class BatTriggerScript : MonoBehaviour {
             // Active bats and set bool to true
             bats.SetActive(true);
             firstBatAppearance = true;
-            // Destroy bats after 3 seconds
-            Destroy(bats, 3);
-            
+
+           // Destroy bats after 3 seconds
+        
+            Invoke("deactivateBats", 3);
+          
         }
     }
 
+    private void deactivateBats()
+    {
+        bats.SetActive(false);
+    }
 
 
 }

@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour {
 	private bool respawning;
 	
 	public ResetOnRespawn[] objectsToReset;
+    // Bat Trigger Reference object to respawn bats
+    public BatTriggerScript respawnbat;
     private void Awake()
     {
         instance = this;
@@ -79,6 +81,9 @@ public class LevelManager : MonoBehaviour {
 			objectsToReset[i].gameObject.SetActive(true);
 			objectsToReset[i].ResetObject();
 		}
+        // Respawn the bat
+        respawnbat.firstBatAppearance = false;
+
 	}
 	
 	public void AddCoins(int coinsToAdd)

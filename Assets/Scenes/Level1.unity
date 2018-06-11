@@ -5526,6 +5526,7 @@ MonoBehaviour:
   healthCount: 0
   playerCanTakeDomage: 1
   objectsToReset: []
+  respawnbat: {fileID: 1472410380}
 --- !u!4 &1333854866
 Transform:
   m_ObjectHideFlags: 0
@@ -6601,6 +6602,7 @@ MonoBehaviour:
   playerCollider: {fileID: 444531602}
   triggerCollider: {fileID: 1472410378}
   bats: {fileID: 1965881206}
+  firstBatAppearance: 0
 --- !u!1 &1497791902
 GameObject:
   m_ObjectHideFlags: 0
@@ -14894,7 +14896,7 @@ ParticleSystem:
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
