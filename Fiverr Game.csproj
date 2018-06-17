@@ -298,7 +298,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BatTriggerScript.cs" />
+    <Compile Include="Assets\Controller.cs" />
     <Compile Include="Assets\HealthBarController.cs" />
+    <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Scripts\BackgroundMoveScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />

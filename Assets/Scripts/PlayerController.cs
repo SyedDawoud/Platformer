@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
+    private Controller slopeController;
 	public float moveSpeed;
 	private Rigidbody2D myRigidbody;
 	
@@ -20,8 +21,9 @@ public class PlayerController : MonoBehaviour {
 	public  Animator myAnim;
     public Animator shield;
 	public Vector3 respawnPosition;
-	
-	public LevelManager theLevelManager;
+   
+
+    public LevelManager theLevelManager;
 	
 	public GameObject stompBox;
 	
@@ -33,7 +35,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		myRigidbody = GetComponent<Rigidbody2D>();
-		myAnim = GetComponent<Animator>();
+        slopeController = GetComponent<Controller>();
+        myAnim = GetComponent<Animator>();
 		
 		respawnPosition = transform.position;
 		
@@ -77,15 +80,16 @@ public class PlayerController : MonoBehaviour {
 		myAnim.SetBool("Ground", isGrounded);
 		myAnim.SetBool("Falling", isFalling);
 		myAnim.SetBool("Jumping", isJumping);
-		
-		if(myRigidbody.velocity.y < 0)
+
+        
+        if (myRigidbody.velocity.y < 0)
 		{
 			stompBox.SetActive(true);
 		}else {
 			stompBox.SetActive(false);
 		}
-
-	}	
+        slopeController.Move(myRigidbody.velocity * Time.deltaTime);
+    }	
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
